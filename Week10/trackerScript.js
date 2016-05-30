@@ -82,7 +82,7 @@ app.post('/WorkoutTracker',function(req,res,next)
 			return;
 		}
 	});
-}
+});
 
 app.listen(app.get('port'), function()
 {
