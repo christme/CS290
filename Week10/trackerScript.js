@@ -24,13 +24,13 @@ var pool = mysql.createPool(
   host  : 'localhost',
   user  : 'student',
   password: 'default',
-  database: 'workouts'
+  database: 'student'
 });
 
 app.get('/WorkoutTracker',function(req,res,next)
 {
 	var context = {};
-	mysql.pool.query("INSERT INTO workout (`name`) VALUES (?)", [req.query.name], function(err, result)
+	pool.query("INSERT INTO workout (`name`) VALUES (?)", [req.query.name], function(err, result)
 	{
 		if(err)
 		{
