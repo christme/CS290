@@ -23,21 +23,21 @@
 		</fieldset>
 		</form>		
 		<br /> <br />
-		<table>
+		<table border="double">
 			<tr>
-				<th> <b> Name </b> </th>
-				<th> <b> Reps </b> </th>
-				<th> <b> Weight </b> </th>
-				<th> <b> Date </b> </th>
-				<th> <b> In Pounds </b> </th>
+				<th width="150px" height="15px"> <b> Name </b> </th>
+				<th width="150px" height="15px"> <b> Reps </b> </th>
+				<th width="150px" height="15px"> <b> Weight </b> </th>
+				<th width="150px" height="15px"> <b> Date </b> </th>
+				<th width="150px" height="15px"> <b> In Pounds </b> </th>
 			<tr>
 		{{#each results}}
             <tr>
-				<td>{{this.name}} </td>
-				<td>{{this.reps}} </td>
-				<td>{{this.weight}} </td>
-				<td>{{this.date}} </td>
-				<td>{{this.lbs}} </td>
+				<td width="150px" height="15px">{{this.name}} </td>
+				<td width="150px" height="15px">{{this.reps}} </td>
+				<td width="150px" height="15px">{{this.weight}} </td>
+				<td width="150px" height="15px">{{this.date}} </td>
+				<td width="150px" height="15px">{{this.lbs}} </td>
 			</tr>
         {{/each}}
 		</table>
