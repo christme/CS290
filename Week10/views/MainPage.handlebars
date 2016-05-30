@@ -38,15 +38,28 @@
 				<td width="150px" height="15px">{{this.weight}} </td>
 				<td width="150px" height="15px">{{this.date}} </td>
 				<td width="150px" height="15px">{{this.lbs}} </td>
-				<td width="150px" height="15px"> <button onclick="deleteRow('{{this.id}}') type="button" value="edit" width="50px">Edit</button><button onclick="EditRow('{{this.id}}') type="button" value="delete" width="50px">Delete</button> </td>
+				<td width="150px" height="15px">
+					<button type="button" value="edit" width="50px">Edit</button>
+					<button onclick="deleteRow('table', this)" type="button" value="delete" width="50px">Delete</button> 
+				</td>
 			</tr>
         {{/each}}
 		</table>
+		
 		<script>
-			function deleteRow(rowId)
+		function deleteRow(tableID, currentRow) 
+		{		
+			var table = document.getElementById(tableID);
+			for (var i = 0; i < rowCount; i++) 
 			{
-				$.post('/WorkoutTracker', {id: rowId});
-			}
-		</script>
+				var row = table.rows[i];            
+				if (row==currentRow.parentNode.parentNode)
+				{
+					$.post('/WorkoutTracker', {id: currentRow.id});
+				}        
+			} 
+		}
+    //getValues();
+}
 	</body>
 </html>
