@@ -4,7 +4,7 @@
 		<title> Workout Tracker </title>
 	</head>
 	<body>
-		<form form action="http://52.33.57.209:3000/MainPage" method="get" method="get"  >
+		<form action="http://52.33.57.209:3000/MainPage" method="get" >
 		<fieldset border="double" padding="20px">
 			<legend> <b>Add a New Exercise</b> </legend>
 			<label for="name">Exercise Name: </label>
@@ -32,33 +32,27 @@
 				<th width="150px" height="15px"> <b> In Pounds </b> </th>
 			<tr>
 		{{#each results}}
-            <tr id={{this.id}}>
+            <tr>
 				<td width="150px" height="15px">{{this.name}} </td>
 				<td width="150px" height="15px">{{this.reps}} </td>
 				<td width="150px" height="15px">{{this.weight}} </td>
 				<td width="150px" height="15px">{{this.date}} </td>
 				<td width="150px" height="15px">{{this.lbs}} </td>
 				<td width="150px" height="15px">
-					<button type="button" value="edit" width="50px">Edit</button>
-					<button onclick="deleteRow('table', this)" type="button" value="delete" width="50px">Delete</button> 
-				</td>
+				<form action="http://52.33.57.209:3000/WorkoutTracker" method="post">
+					<input name="id" value={{this.id}} >
+					<input name="name" value={{this.name}}>
+					<input name="reps" value={{this.reps}}>
+					<input name="weight" value={{this.weight}}>
+					<input name="date" value={{this.date}}>
+					<input name="lbs" value={{this.lbs}}>
+					<input type="submit" name="Edit" id="edit"> 
+					<input type="submit" name="Delete" id="delete"> 
+				</form>
+				</td>				
 			</tr>
         {{/each}}
 		</table>
 		
-		<script>
-		function deleteRow(tableID, currentRow) 
-		{		
-			var table = document.getElementById(tableID);
-			for (var i = 0; i < rowCount; i++) 
-			{
-				var row = table.rows[i];            
-				if (row==currentRow.parentNode.parentNode)
-				{
-					$.post('/WorkoutTracker', {id: i+1 });
-				}        
-			} 
-		}
-		</script>
 	</body>
 </html>
