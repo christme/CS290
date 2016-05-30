@@ -24,7 +24,7 @@ var pool = mysql.createPool(
   host  : 'localhost',
   user  : 'student',
   password: 'default',
-  database: 'student'
+  database: 'workouts'
 });
 
 app.get('/WorkoutTracker',function(req,res,next)
