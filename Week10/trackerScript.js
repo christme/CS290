@@ -74,7 +74,7 @@ app.get('/reset-table',function(req,res,next)
 app.post('/WorkoutTracker',function(req,res,next)
 {
 	var context = {};
-	pool.query("DELETE FROM workout WHERE id = ?", [req.id] ,function(err, result)
+	pool.query("DELETE FROM workouts WHERE id = ?", [req.id] ,function(err, result)
 	{
 		if(err)
 		{
