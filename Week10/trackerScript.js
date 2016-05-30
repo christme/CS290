@@ -71,6 +71,19 @@ app.get('/reset-table',function(req,res,next)
 	});
 });
 
+app.post('/WorkoutTracker',function(req,res,next)
+{
+	var context = {};
+	pool.query("DELETE FROM workout WHERE id = ?", [req.id] ,function(err, result)
+	{
+		if(err)
+		{
+			next(err);
+			return;
+		}
+	});
+}
+
 app.listen(app.get('port'), function()
 {
         console.log('Express started on http://localhost:' + app.get('port') + '; press Ctrl-C to terminate.');

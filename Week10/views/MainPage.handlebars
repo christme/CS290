@@ -23,7 +23,7 @@
 		</fieldset>
 		</form>		
 		<br /> <br />
-		<table border="double">
+		<table id="table" border="double">
 			<tr>
 				<th width="150px" height="15px"> <b> Name </b> </th>
 				<th width="150px" height="15px"> <b> Reps </b> </th>
@@ -32,15 +32,21 @@
 				<th width="150px" height="15px"> <b> In Pounds </b> </th>
 			<tr>
 		{{#each results}}
-            <tr>
+            <tr id={{this.id}}>
 				<td width="150px" height="15px">{{this.name}} </td>
 				<td width="150px" height="15px">{{this.reps}} </td>
 				<td width="150px" height="15px">{{this.weight}} </td>
 				<td width="150px" height="15px">{{this.date}} </td>
 				<td width="150px" height="15px">{{this.lbs}} </td>
-				<td width="150px" height="15px"> <button id={{this.id}} type="button" value="edit" width="50px">Edit</button><button id={{this.id}} type="button" value="delete" width="50px">Delete</button> </td>
+				<td width="150px" height="15px"> <button onclick="deleteRow('{{this.id}}') type="button" value="edit" width="50px">Edit</button><button onclick="EditRow('{{this.id}}') type="button" value="delete" width="50px">Delete</button> </td>
 			</tr>
         {{/each}}
 		</table>
+		<script>
+			function deleteRow(rowId)
+			{
+				$.post('/WorkoutTracker', {id: rowId});
+			}
+		</script>
 	</body>
 </html>
