@@ -30,8 +30,7 @@ var pool = mysql.createPool(
 app.get('/WorkoutTracker',function(req,res,next)
 {
 	var context = {};
-	pool.query("INSERT INTO workouts (`name`, `reps`, `weight`, `date`, `lbs`) VALUES (?)", [req.query.name], [req.query.reps]
-	[req.query.weight], [req.query.date], [req.query.lbs], function(err, result)
+	pool.query("INSERT INTO workouts (`name`) VALUES (?)", [req.query.name], function(err, result)
 	{
 		if(err)
 		{
