@@ -4,7 +4,7 @@
 		<title> Workout Tracker </title>
 	</head>
 	<body>
-		<form action="http://52.33.57.209:3000/MainPage" method="get" >
+		<form action="http://52.33.57.209:3000/WorkoutTracker" method="get" >
 		<fieldset border="double" padding="20px">
 			<legend> <b>Add a New Exercise</b> </legend>
 			<label for="name">Exercise Name: </label>
@@ -39,15 +39,9 @@
 				<td width="150px" height="15px">{{this.date}} </td>
 				<td width="150px" height="15px">{{this.lbs}} </td>
 				<td width="150px" height="15px">
-				<form action="http://52.33.57.209:3000/WorkoutTracker" method="post">
-					<input name="id" value={{this.id}} >
-					<input name="name" value={{this.name}}>
-					<input name="reps" value={{this.reps}}>
-					<input name="weight" value={{this.weight}}>
-					<input name="date" value={{this.date}}>
-					<input name="lbs" value={{this.lbs}}>
-					<input type="submit" name="Edit" id="edit"> 
-					<input type="submit" name="Delete" id="delete"> 
+				<form action="http://52.33.57.209:3000/WorkoutTracker?id={{this.id}}&name={{this.name}}&reps={{this.reps}}&weight={{this.weight}}&date={{this.data}}&lbs={{this.lbs}}" method="post">
+					<input type="submit" name="edit" value="Edit"> 
+					<input type="submit" name="eelete" value="Delete"> 
 				</form>
 				</td>				
 			</tr>
