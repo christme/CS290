@@ -55,7 +55,7 @@ app.get('/WorkoutTracker',function(req,res,next)
 	});
 });
 
-/*app.get('/WorkoutTracker',function(req,res,next)
+app.get('/reset-table',function(req,res,next)
 {
 	var context = {};
 	pool.query("DROP TABLE IF EXISTS workouts", function(err)
@@ -73,7 +73,7 @@ app.get('/WorkoutTracker',function(req,res,next)
 			res.render('MainPage',context);
 		})
 	});
-});*/
+});
 
 app.listen(app.get('port'), function()
 {
