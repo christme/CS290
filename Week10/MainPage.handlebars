@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head> 
+		<title> Workout Tracker </title>
+	</head>
+	<body>
+		<form form action="http://52.33.57.209:3050/WorkoutTracker" method="get" method="get"  >
+		<fieldset border="double" padding="20px">
+			<legend> <b>Add a New Exercise</b> </legend>
+			<label for="name">Exercise Name: </label>
+			<input type="text" name="name" id="name" > <br /><br />
+			<label for="reps"> Reps: </label>
+			<input type="text" name="reps" id="reps" > <br /> <br />
+			<label for="weight"> Weight: </label>
+			<input type="text" name="weight" id="weight" > <br /> <br />
+			<label for="date"> Date: </label>
+			<input type="text" name="date" id="date" > <br /> <br />
+			<label for="lbs"> Weight Measured in: </label>
+			<input type="radio" name="lbs" value="pound" checked> Pounds 
+			<input type="radio" name="lbs" value="kg" > Kilograms 
+			<br /> <br />
+			<input type="submit" id="submit">
+		</fieldset>
+		</form>		
+		{{table}}		
+	</body>
+</html>
