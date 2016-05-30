@@ -38,7 +38,7 @@ app.get('/WorkoutTracker',function(req,res,next)
 			return;
 		}
 	});
-	mysql.pool.query('SELECT * FROM workouts', function(err, rows, fields)
+	pool.query('SELECT * FROM workouts', function(err, rows, fields)
 	{
 		if(err)
 		{
