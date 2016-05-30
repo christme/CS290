@@ -22,6 +22,24 @@
 			<input type="submit" id="submit">
 		</fieldset>
 		</form>		
-		{{results}}		
+		<br /> <br />
+		<table>
+			<tr>
+				<th> <b> Name </b> </th>
+				<th> <b> Reps </b> </th>
+				<th> <b> Weight </b> </th>
+				<th> <b> Date </b> </th>
+				<th> <b> In Pounds </b> </th>
+			<tr>
+		{{#each results}}
+            <tr>
+				<td>{{this.name}} </td>
+				<td>{{this.reps}} </td>
+				<td>{{this.weight}} </td>
+				<td>{{this.date}} </td>
+				<td>{{this.lbs}} </td>
+			</tr>
+        {{/each}}
+		</table>
 	</body>
 </html>

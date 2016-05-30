@@ -30,6 +30,7 @@ var pool = mysql.createPool(
 app.get('/WorkoutTracker',function(req,res,next)
 {
 	var context = {};
+	var tableData [];
 	var data = {name: req.query.name, reps: req.query.reps, weight: req.query.weight, date: req.query.date, lbs: req.query.lbs}
 	pool.query("INSERT INTO workouts SET ?", data, function(err, result)
 	{
@@ -46,47 +47,7 @@ app.get('/WorkoutTracker',function(req,res,next)
 			next(err);
 			return;
 		}
-		context.results = function(rows)
-		{
-			var table = document.createElement('table');
-			var header = document.createElement('th');
-			var row = document.createElement('tr');
-			var tableData = document.createElement('td');
-			
-			table.style.border = "double";
-			header.style.border = "1px solid black";
-			tableData.style.border = "1px solid black";
-			
-			//generate the table header
-			row.appendChild(header.cloneNode());
-			row.lastChild.textContent = "Name";
-			row.appendChild(header.cloneNode());
-			row.lastChild.textContent = "Reps";
-			row.appendChild(header.cloneNode());
-			row.lastChild.textContent = "Weight";
-			row.appendChild(header.cloneNode());
-			row.lastChild.textContent = "Date";
-			row.appendChild(header.cloneNode());
-			row.lastChild.textContent = "In Pounds";
-			
-			table.appendChild(row);
-			
-			for (var i = 0; i < rows.length; i ++)
-			{
-				row.appendChild(tableData.cloneNode());
-				row.lastChild.textContent = rows[i].name;
-				row.appendChild(tableData.cloneNode());
-				row.lastChild.textContent = rows[i].reps;
-				row.appendChild(tableData.cloneNode());
-				row.lastChild.textContent = rows[i].weight;
-				row.appendChild(tableData.cloneNode());
-				row.lastChild.textContent = rows[i].date;
-				row.appendChild(tableData.cloneNode());
-				row.lastChild.textContent = rows[i].lbs;
-				table.appendChild(row);
-			}	
-			return table;
-		};
+		context.results = rows;
 		res.render('MainPage', context);
 	});	
 });
