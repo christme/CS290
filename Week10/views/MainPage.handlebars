@@ -55,11 +55,10 @@
 				var row = table.rows[i];            
 				if (row==currentRow.parentNode.parentNode)
 				{
-					$.post('/WorkoutTracker', {id: currentRow.id});
+					$.post('/WorkoutTracker', {id: i+1 });
 				}        
 			} 
 		}
-    //getValues();
-}
+		</script>
 	</body>
 </html>
