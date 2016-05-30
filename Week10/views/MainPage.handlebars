@@ -16,8 +16,8 @@
 			<label for="date"> Date: </label>
 			<input type="text" name="date" id="date" > <br /> <br />
 			<label for="lbs"> Weight Measured in: </label>
-			<input type="radio" name="lbs" value="true" checked> Pounds 
-			<input type="radio" name="lbs" value="false" > Kilograms 
+			<input type="radio" name="lbs" value="1" checked> Pounds 
+			<input type="radio" name="lbs" value="0" > Kilograms 
 			<br /> <br />
 			<input type="submit" id="submit">
 		</fieldset>
@@ -38,9 +38,8 @@
 				<td width="150px" height="15px">{{this.weight}} </td>
 				<td width="150px" height="15px">{{this.date}} </td>
 				<td width="150px" height="15px">{{this.lbs}} </td>
+				<td width="150px" height="15px"> <button type="button" value="edit">Edit</button><button type="button" value="delete">Delete</button> </td>
 			</tr>
-			<button type="button" value="edit">Edit</button>
-			<button type="button" value="delete">Delete</button>
         {{/each}}
 		</table>
 	</body>
