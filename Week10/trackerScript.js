@@ -27,7 +27,7 @@ var pool = mysql.createPool(
   database: 'student'
 });
 
-app.get('/MainPage',function(req,res,next)
+app.get('/WorkoutTracker',function(req,res,next)
 {
 	var context = {};
 	var data = {name: req.query.name, reps: req.query.reps, weight: req.query.weight, date: req.query.date, lbs: req.query.lbs}
