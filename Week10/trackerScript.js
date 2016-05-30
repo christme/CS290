@@ -37,9 +37,17 @@ app.get('/WorkoutTracker',function(req,res,next)
 			next(err);
 			return;
 		}
-		context.results = "Inserted id " + result.insertId;
-		res.render('MainPage',context);
 	});
+	mysql.pool.query('SELECT * FROM workouts', function(err, rows, fields)
+	{
+		if(err)
+		{
+			next(err);
+			return;
+		}
+		context.results = JSON.stringify(rows);
+		res.render('MainPage', context);
+	});	
 });
 
 app.get('/reset-table',function(req,res,next)
