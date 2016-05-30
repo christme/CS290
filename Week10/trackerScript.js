@@ -27,31 +27,18 @@ var pool = mysql.createPool(
   database: 'workouts'
 });
 
-app.get('/WorkoutTracker',function(req,res,next)
+app.get('/HomePage',function(req,res,next)
 {
 	var context = {};
-	mysql.pool.query("SELECT * FROM workouts WHERE id=?", [req.query.id], function(err, result)
+	mysql.pool.query("INSERT INTO todo (`name`) VALUES (?)", [req.query.c], function(err, result)
 	{
 		if(err)
 		{
 			next(err);
 			return;
 		}
-		if(result.length == 1)
-		{
-			var curVals = result[0];
-			mysql.pool.query("UPDATE workouts SET name=?, reps=?, weight=?, date=?, lbs=? WHERE id=? ", [req.query.name || curVals.name, req.query.done || curVals.done, req.query.due || curVals.due, req.query.id],
-			function(err, result)
-			{
-				if(err)
-				{
-					next(err);
-					return;
-				}	
-				context.results = "Updated " + result.changedRows + " rows.";
-				res.render('MainPage',context);
-			});
-		}
+		context.results = "Inserted id " + result.insertId;
+		res.render('MainPage',context);
 	});
 });
 
