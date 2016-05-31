@@ -38,12 +38,6 @@
 				<td width="150px" height="15px">{{this.weight}} </td>
 				<td width="150px" height="15px">{{this.date}} </td>
 				<td width="150px" height="15px">{{this.lbs}} </td>
-				<td width="150px" height="15px">
-				<form action="http://52.33.57.209:3000/WorkoutTracker?id={{this.id}}&name={{this.name}}&reps={{this.reps}}&weight={{this.weight}}&date={{this.data}}&lbs={{this.lbs}}" method="post">
-					<input type="submit" name="edit" value="Edit"> 
-					<input type="submit" name="eelete" value="Delete"> 
-				</form>
-				</td>				
 			</tr>
         {{/each}}
 		</table>

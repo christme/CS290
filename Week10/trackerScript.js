@@ -71,28 +71,6 @@ app.get('/reset-table',function(req,res,next)
 	});
 });
 
-app.post('/WorkoutTracker',function(req,res,next)
-{
-	var context = {};
-	pool.query("DELETE FROM workouts WHERE id = ?", [req.id] ,function(err, result)
-	{
-		if(err)
-		{
-			next(err);
-			return;
-		}
-	});
-	pool.query('SELECT * FROM workouts', function(err, rows, fields)
-	{
-		if(err)
-		{
-			next(err);
-			return;
-		}
-		context.results = rows;
-		res.render('MainPage', context);
-	});
-});
 
 app.listen(app.get('port'), function()
 {
