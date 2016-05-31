@@ -82,6 +82,16 @@ app.post('/WorkoutTracker',function(req,res,next)
 			return;
 		}
 	});
+	pool.query('SELECT * FROM workouts', function(err, rows, fields)
+	{
+		if(err)
+		{
+			next(err);
+			return;
+		}
+		context.results = rows;
+		res.render('MainPage', context);
+	});
 });
 
 app.listen(app.get('port'), function()
